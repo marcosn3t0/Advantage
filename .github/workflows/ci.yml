@@ -17,7 +17,8 @@ jobs:
         run: docker build -t playwright-allure .
 
       - name: Run tests inside Docker
-        run: docker run --rm \
+        run: | 
+          docker run --rm \
           -e ENV=dev \
           playwright-allure
 
