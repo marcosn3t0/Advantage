@@ -2,7 +2,7 @@ name: CI Advantage Shopping End2End Tests
 
 on:
   push:
-    branches: [master]
+    branches: [master,ci_fix]
   pull_request:
     branches: [ master ]
 
