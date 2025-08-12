@@ -22,11 +22,18 @@ jobs:
           -e ENV=dev \
           playwright-allure
 
-      - name: Copia os relatórios do container
+      - name: Copia os resultados do container
         run: |
           container_id=$(docker create playwright-allure)
-          docker cp "$container_id":/app/target ./target
+          docker cp "$container_id":/app/target/allure-results ./target/allure-results
           docker rm "$container_id"
+
+      - name: Instala Allure CLI
+        run: |
+          sudo apt-get update && sudo apt-get install -y allure
+
+      - name: Gera relatório Allure
+        run: allure generate target/allure-results --clean -o target/allure-report
 
       - name: Publica os resultados dos testes
         uses: actions/upload-artifact@v4
