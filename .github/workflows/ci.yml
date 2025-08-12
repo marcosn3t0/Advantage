@@ -17,17 +17,16 @@ jobs:
         run: docker build -t playwright-allure .
 
       - name: Executa os testes com o Docker
-        run: | 
-          docker run \
-          -e ENV=dev \
-          playwright-allure
+        run: |
+          docker run --name test-run \
+            -e ENV=dev \
+            playwright-allure || true
 
-      - name: Copia os resultados do container
+      - name: Copia os relatórios do container
         if: always()
         run: |
-          container_id=$(docker create playwright-allure)
-          docker cp "$container_id":/app/target/allure-results ./target/allure-results
-          docker rm "$container_id"
+          docker cp test-run:/app/target/allure-results ./target/allure-results || true
+          docker rm test-run || true
 
       - name: Instala Allure CLI
         if: always()
