@@ -31,11 +31,7 @@ jobs:
       - name: Instala Allure CLI
         if: always()
         run: |
-          sudo apt-get update && sudo apt-get install -y unzip
-          curl -o allure-commandline.tgz -L https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.tgz
-          sudo tar -zxvf allure-commandline.tgz -C /opt/
-          sudo ln -s /opt/allure-*/bin/allure /usr/bin/allure
-          allure --version
+          sudo apt-get update && sudo apt-get install -y allure
 
       - name: Gera relatório Allure
         if: always()
