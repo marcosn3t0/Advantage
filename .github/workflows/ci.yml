@@ -24,7 +24,10 @@ jobs:
 
       - name: Debug container filesystem
         if: always()
-        run: docker exec test-run ls -R /app || true
+        run: |
+          docker cp test-run:/app ./app-from-container || true
+          find ./app-from-container
+
 
       - name: Copia os relatórios do container
         if: always()
