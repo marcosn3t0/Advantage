@@ -18,7 +18,7 @@ jobs:
 
       - name: Executa os testes com o Docker
         run: | 
-          docker run --rm \
+          docker run \
           -e ENV=dev \
           playwright-allure
 
