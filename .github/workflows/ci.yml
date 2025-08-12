@@ -1,4 +1,4 @@
-name: CI Advantage End2End Tests
+name: CI Advantage-Shopping End2End Tests
 
 on:
   pull_request:
@@ -26,6 +26,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
