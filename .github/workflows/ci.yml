@@ -19,11 +19,7 @@ jobs:
       - name: Run tests inside Docker
         run: docker run --rm \
           -e ENV=dev \
-          -v ${{ github.workspace }}/target:/app/target \
           playwright-allure
-
-      - name: Fix target permissions
-        run: sudo chown -R $USER:$USER target
 
       - name: Generate Allure Report
         run: |
