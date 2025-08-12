@@ -22,6 +22,12 @@ jobs:
             -e ENV=dev \
             playwright-allure || true
 
+      - name: Debug container filesystem
+        if: always()
+        run: |
+          docker cp test-run:/app ./app-from-container || true
+          find ./app-from-container
+
       - name: Copia os relatórios do container
         if: always()
         run: |
