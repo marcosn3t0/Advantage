@@ -22,6 +22,10 @@ jobs:
             -e ENV=dev \
             playwright-allure || true
 
+      - name: Debug container filesystem
+        if: always()
+        run: docker exec test-run ls -R /app || true
+
       - name: Copia os relatórios do container
         if: always()
         run: |
