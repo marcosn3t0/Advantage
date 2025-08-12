@@ -17,16 +17,14 @@ jobs:
         run: docker build -t playwright-allure .
 
       - name: Run tests inside Docker
-        run: | 
+        run: |
           docker run --rm \
-          -u $(id -u):$(id -g) \
-          -e ENV=dev \
-          -v ${{ github.workspace }}/target:/app/target \
-          -v ${{ github.workspace }}/.m2:/tmp/.m2 \
-          -e MAVEN_CONFIG=/tmp/.m2 \
-          playwright-allure
-
-
+            -u $(id -u):$(id -g) \
+            -e ENV=dev \
+            -v ${{ github.workspace }}/target:/app/target \
+            -v ${{ github.workspace }}/.m2:/home/maven/.m2 \
+            -e MAVEN_CONFIG=/home/maven/.m2 \
+            playwright-allure
 
       - name: Generate Allure Report
         run: |
