@@ -1,0 +1,18 @@
+services:
+  test-runner:
+    build: .
+    container_name: java-test-runner
+    volumes:
+      - ./db:/app/db
+      - ./logs:/app/logs
+    working_dir: /app
+    command: mvn clean test
+
+  allure:
+    image: frankescobar/allure-docker-service
+    container_name: allure-service
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./target/allure-results:/app/allure-results
+      - ./target/allure-report:/app/allure-report

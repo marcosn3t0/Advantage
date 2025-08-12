@@ -1,0 +1,1 @@
+Iniciando Cenário: Remover items do carrinho de compras
