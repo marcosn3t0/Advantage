@@ -1,1 +1,0 @@
-Cenário: Adicionar produtos ao carrinho | Status: PASSED

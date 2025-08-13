@@ -1,1 +1,0 @@
-Cenário: Remover items do carrinho de compras | Status: PASSED

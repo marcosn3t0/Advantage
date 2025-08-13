@@ -1,1 +1,0 @@
-{"username":"ruan-ryan3","password":"Ryan1","nome":"Ruan Ryan","valid":true,"idUser":565436916,"authorization":"Basic cnVhbi1yeWFuMzpSeWFuMQ==","shipping":{"state":"SP","address":"Colina dos Pinheiros","city":"Itapeva","zip":"18402-010","country":"Brazil","phone":"(96) 99353-4807"}}

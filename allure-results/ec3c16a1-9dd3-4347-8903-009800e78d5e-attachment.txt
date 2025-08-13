@@ -1,1 +1,0 @@
-{"userId":565436916,"productsInCart":[{"productId":15,"productName":"Beats Studio 2 Over-Ear Matte Black Headphones","price":179.99,"quantity":1,"imageUrl":"2200","color":{"code":"414141","name":"BLACK","inStock":10},"exists":true,"hasWarranty":false}]}
