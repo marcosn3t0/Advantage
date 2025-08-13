@@ -44,6 +44,9 @@ jobs:
           sudo mv allure-2.34.1 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
           allure --version
+          
+      - name: Debug allure-results before generate
+        run: ls -lR allure-results || true
 
       - name: Gera relatório Allure
         if: always()
@@ -53,5 +56,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: allure-report
+          name: allure-results
+          path: allure-results
