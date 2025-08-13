@@ -1,1 +1,0 @@
-Cenário: Realizar o checkout completo | Status: PASSED

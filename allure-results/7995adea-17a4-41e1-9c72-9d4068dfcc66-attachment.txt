@@ -1,1 +1,0 @@
-{"userId":565436916,"productsInCart":[{"productId":30,"productName":"HP Z4000 Wireless Mouse","price":9.99,"quantity":2,"imageUrl":"5505","color":{"code":"545195","name":"PURPLE","inStock":10},"exists":true,"hasWarranty":false}],"sessionId":"6086EFE4ABA364241F340CBC19452FBC"}
