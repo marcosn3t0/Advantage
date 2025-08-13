@@ -1,8 +1,6 @@
 name: CI Advantage Shopping End2End Tests
 
 on:
-  push:
-    branches: [master,ci_fix]
   pull_request:
     branches: [ master ]
 
@@ -22,11 +20,11 @@ jobs:
             -e ENV=dev \
             playwright-allure || true
 
-      - name: Debug container filesystem
-        if: always()
-        run: |
-          docker cp test-run:/app ./app-from-container || true
-          find ./app-from-container
+#      - name: Debug container filesystem
+#        if: always()
+#        run: |
+#          docker cp test-run:/app ./app-from-container || true
+#          find ./app-from-container
 
       - name: Copia os relatórios do container
         if: always()
@@ -44,9 +42,6 @@ jobs:
           sudo mv allure-2.34.1 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
           allure --version
-          
-      - name: Debug allure-results before generate
-        run: ls -lR allure-results || true
 
       - name: Gera relatório Allure
         if: always()
