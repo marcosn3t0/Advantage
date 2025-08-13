@@ -43,3 +43,6 @@ Thumbs.db
 logs/
 *.log
 *.out
+
+#DB
+db/

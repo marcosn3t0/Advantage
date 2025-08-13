@@ -6,7 +6,9 @@ services:
       - ./db:/app/db
       - ./logs:/app/logs
     working_dir: /app
-    command: mvn clean test
+    environment:
+      - TAGS=@Checkout
+    command: mvn clean test -Dcucumber.filter.tags=${TAGS}
 
   allure:
     image: frankescobar/allure-docker-service
