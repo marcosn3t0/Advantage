@@ -31,7 +31,8 @@ jobs:
       - name: Copia os relatórios do container
         if: always()
         run: |
-          docker cp test-run:/app/allure-results ./target/allure-results || true
+          docker cp test-run:/app/allure-results ./allure-results || true
+          find ./allure-results || true
           docker rm test-run || true
 
       - name: Instala Allure CLI
@@ -41,7 +42,7 @@ jobs:
 
       - name: Gera relatório Allure
         if: always()
-        run: allure generate target/allure-results --clean -o target/allure-report
+        run: allure generate allure-results --clean -o allure-report
 
       - name: Publica os resultados dos testes
         if: always()
