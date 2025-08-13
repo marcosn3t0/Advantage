@@ -35,10 +35,15 @@ jobs:
           find ./allure-results || true
           docker rm test-run || true
 
-      - name: Instala Allure CLI
-        if: always()
+      - name: Install Allure CLI
         run: |
-          sudo apt-get update && sudo apt-get install -y allure
+          sudo apt-get update
+          sudo apt-get install -y default-jre wget unzip
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.tgz
+          tar -zxvf allure-commandline.tgz
+          sudo mv allure-*/ /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          allure --version
 
       - name: Gera relatório Allure
         if: always()
