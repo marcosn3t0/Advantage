@@ -9,19 +9,30 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("stepdefinitions")
-@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME,value = "src/test/resources/features")
-@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,value = "stepdefinitions")
-@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
+@ConfigurationParameter(
+        key = Constants.FEATURES_PROPERTY_NAME,
+        value = "src/test/resources/features"
+)
+@ConfigurationParameter(
+        key = Constants.GLUE_PROPERTY_NAME,
+        value = "stepdefinitions"
+)
+@ConfigurationParameter(
+        key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,
+        value = "false"
+)
 @ConfigurationParameter(
         key = Constants.PLUGIN_PROPERTY_NAME,
-        value = "pretty, html:target/cucumber-report/cucumber.html, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+        value = "pretty, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
 )
 public class TestRunner {
     static {
-        String tags = System.getProperty("cucumber.filter.tags");
-        if (tags != null && !tags.isEmpty()) {
-            System.setProperty(Constants.FILTER_TAGS_PROPERTY_NAME, tags);
+        // Allow CLI override for cucumber.filter.tags
+        String cliTags = System.getProperty("cucumber.filter.tags");
+        if (cliTags != null && !cliTags.trim().isEmpty()) {
+            System.setProperty(Constants.FILTER_TAGS_PROPERTY_NAME, cliTags);
         } else {
+            // Default tag if none provided
             System.setProperty(Constants.FILTER_TAGS_PROPERTY_NAME, "@Checkout");
         }
     }

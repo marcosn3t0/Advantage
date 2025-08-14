@@ -5,10 +5,12 @@ services:
     volumes:
       - ./db:/app/db
       - ./logs:/app/logs
+      - ./allure-results:/shared/allure-results
     working_dir: /app
     environment:
       - TAGS=@Checkout
-    command: mvn clean test -Dcucumber.filter.tags=${TAGS}
+    command: >
+      sh -c "mvn clean test -Dcucumber.filter.tags=${TAGS} && cp -r target/allure-results/* /shared/allure-results/"
 
   allure:
     image: frankescobar/allure-docker-service
@@ -16,5 +18,5 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - ./target/allure-results:/app/allure-results
+      - ./allure-results:/app/allure-results
       - ./target/allure-report:/app/allure-report
