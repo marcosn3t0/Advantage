@@ -27,12 +27,12 @@ import org.junit.platform.suite.api.Suite;
 )
 public class TestRunner {
     static {
-        // Allow CLI override for cucumber.filter.tags
+        // Permite CLI execução cucumber.filter.tags
         String cliTags = System.getProperty("cucumber.filter.tags");
         if (cliTags != null && !cliTags.trim().isEmpty()) {
             System.setProperty(Constants.FILTER_TAGS_PROPERTY_NAME, cliTags);
         } else {
-            // Default tag if none provided
+            // Tag padrão se nenhuma é fornecida
             System.setProperty(Constants.FILTER_TAGS_PROPERTY_NAME, "@Checkout");
         }
     }

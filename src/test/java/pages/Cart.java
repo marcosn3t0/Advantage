@@ -80,8 +80,6 @@ public class Cart extends BasePage {
                 new Locator.FilterOptions().setHasText(productName)
         ).locator("span.actions a[class*=\"edit\"]");
 
-       System.out.println(editButton);
-
         editButton.click();
     }
 

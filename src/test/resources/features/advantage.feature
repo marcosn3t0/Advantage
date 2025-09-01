@@ -51,3 +51,15 @@
         E clico em pagar agora
         E verifico o resumo da compra
 
+    @NotLoggedIn
+    Cenario: Realizar o checkout do produto sem estar logado
+      Dado que estou na home page
+        E que adiciono lista de produtos ao carrinho de compras
+          |id| produto                                          | quantidade | cor              | valor   |codeColor|
+          |15| Beats Studio 2 Over-Ear Matte Black Headphones   | 1          | rgb(65, 65, 65)  | 179.99  |414141   |
+          |30| HP Z4000 Wireless Mouse	                      | 2          | rgb(221, 58, 91) | 9.99    |DD3A5B   |
+      Quando navego até o carrinho de compras
+      Entao verifico que a lista de produtos foram adicionadas corretamente
+        E confirmo o checkout dos produtos
+        E verifico a mensagem "Already have an account?" na página de pagamento como label
+        E verifico a mensagem "New user?" na página de pagamento como label
