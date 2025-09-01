@@ -147,5 +147,11 @@ o arquivo está localizado em: [CI Workflow](.github/workflows/ci.yml)
 
 @AfterAll – Fecha o contexto e encerra a instância do Playwright.
 
+### Próximos Passos
+
+- Expandir o número de testes cobertos
+
+- Criar testes para diferentes áreas do sistema
+
 ### Licença
 Licença MIT — livre para usar, modificar e compartilhar.
