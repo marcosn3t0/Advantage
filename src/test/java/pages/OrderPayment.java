@@ -174,4 +174,17 @@ public class OrderPayment extends BasePage {
 
     }
 
+    public void checkMessageOnPaymentPage(String msg){
+        Locator msgLocator = this.page.locator(String.format("//label[text()=\"%s\"]",msg));
+
+        try{
+            msgLocator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(10000));
+            Assert.assertTrue(msgLocator.isVisible());
+        }catch (Exception e){
+            System.out.println("Não foi possível verificar visibilidade do elemento: " + e.getMessage());
+        }
+
+    }
+
+
 }

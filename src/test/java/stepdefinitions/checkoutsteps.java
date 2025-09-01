@@ -30,6 +30,7 @@ public class checkoutsteps {
 
     @Dado("que estou na home page")
     public void que_estou_na_home_page() {
+
         homePage.homePage();
     }
 
@@ -143,6 +144,11 @@ public class checkoutsteps {
                 context.getCardInfo(),
                 context.getProducts()
         );
+    }
+
+    @Entao("verifico a mensagem {string} na página de pagamento como label")
+    public void verifico_a_mensagem_na_pagina_de_pagamento_como_label(String msg) {
+        orderPayment.checkMessageOnPaymentPage(msg);
     }
 
 

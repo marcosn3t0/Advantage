@@ -3,13 +3,15 @@ Automação de testes End-to-End (UI e API) para a aplicação Advantage Online 
 Este projeto valida fluxos de compra — desde a adição de produtos ao carrinho, edição/remoção até a finalização — e integra com o Allure para relatórios detalhados.
 
 ## Funcionalidades Cobertas
-Adicionar produtos ao carrinho — Garante que os itens sejam adicionados corretamente e que o preço total esteja correto.
+- Adicionar produtos ao carrinho — Garante que os itens sejam adicionados corretamente e que o preço total esteja correto.
 
 - Remover produtos do carrinho — Confirma que o carrinho fica vazio após a remoção.
 
 - Editar produtos no carrinho — Atualiza quantidade, cor e valida o preço.
 
 - Fluxo completo de checkout — Do carrinho até o pagamento e resumo do pedido.
+
+- Adiciona Item ao carrinho sem estar logado no sistema
 
 - Validações via API — Limpa o carrinho por API ao final de cada teste.
 
@@ -118,8 +120,15 @@ Certifique-se de que o serviço do Allure está ativo:
   docker compose up allure
 ```
 
+ou localmente:
+
+```bash
+ allure serve allure-results
+```
+
 Acesse o relatório Allure em:
 http://localhost:5050
+http://localhost:5050/static/projects/default/reports/latest/index.html
 
 ## CI - Execução
 
